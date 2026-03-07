@@ -42,5 +42,36 @@ C'est ce qu'on appelle la complexité O(N), c'est plus lourd et plus lent, parce
 détruire les boîtes en permanence.
 
 La façon proposée utilise un tableau statique, le tableau va toujours avoir la même taille, ce qui
- ne crée jamais de nouvelle mémoire en cours de route ni d'espace supplémentaire. 
- L'espace utilisé ne varie pas, c'est ce qu'on appelle la complexité O(1), c'est plus rapide et plus robuste.
+ne crée jamais de nouvelle mémoire en cours de route ni d'espace supplémentaire. 
+L'espace utilisé ne varie pas, c'est ce qu'on appelle la complexité O(1), c'est plus rapide et plus robuste.
+
+# Proposer trois arbres
+
+Schéma des 3 types d'arbres BST (img/Arbre_BST.jpg)
+
+# Main de base avec arbre statique
+
+Questions : 
+
+1 : Limites et compatibilité
+
+Construire un arbre directement dans le code bloque sa taille au début.
+Pendant que le programme tourne, on ne peut pas ajouter de nouveaux nœuds ou en supprimer vu que
+l'arbre est bloqué ou statique.
+
+Cette construction est totalement incompatible avec free(). Selon ce qu'on à vu en cours et mes recherches, La règle en C est simple, on ne 
+peut utiliser free() que pour effacer une mémoire créée par malloc(). Ici, on n'a pas utilisé malloc(), donc si on essaie de faire un free(), 
+le programme va planter et creér ce qu'ils appels un (Erreur de segmentation).
+
+
+2 : Écrire un main de base 
+Dans main.c 
+
+3 : Est-ce un BST alphabétique ?
+
+Oui, l'arbre respecte la règle fondamentale (Gauche - Nœud - Droite) 
+Si on le regarde, on voit que la racine est 'F'.
+Tout le côté gauche ('B', 'A', 'D', 'C', 'E') est avant 'F' dans l'alphabet donc c'est le cote inférieur.
+
+Tout le côté droit ('G', 'I', 'H') est après 'F' dans l'alphabet donc c'est le cote supérieur.
+Chaque sous-arbre respecte aussi cette règle  pour exemple 'B', 'A' est à gauche, 'D' est à droite.
