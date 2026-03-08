@@ -55,6 +55,21 @@ int main() {
     printf("SUCCES : Arbre statique cree ! La racine contient la lettre : %c\n", root.data);
     printf("Enfant gauche de la racine : %c\n", root.left->data);
     printf("Enfant droit de la racine  : %c\n", root.right->data);
+
+
+    printf("\n TESTS DES PARCOURS RECURSIFS \n");
+    
+    printf("Parcours Prefixe (Preorder)  : ");
+    preorder(&root, print_node);
+    printf("\n");
+
+    printf("Parcours Infixe (Inorder)    : ");
+    inorder(&root, print_node);
+    printf("\n");
+
+    printf("Parcours Postfixe (Postorder): ");
+    postorder(&root, print_node);
+    printf("\n");
     
     return 0;
 }

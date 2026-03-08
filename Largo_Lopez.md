@@ -75,3 +75,9 @@ Tout le côté gauche ('B', 'A', 'D', 'C', 'E') est avant 'F' dans l'alphabet do
 
 Tout le côté droit ('G', 'I', 'H') est après 'F' dans l'alphabet donc c'est le cote supérieur.
 Chaque sous-arbre respecte aussi cette règle  pour exemple 'B', 'A' est à gauche, 'D' est à droite.
+
+# Fonctions de traversée d’arbre récursives
+
+Que donne le parcours infixe sur l’arbre précédent ?
+
+R// : Parcours Infixe (Inorder) : A B C D E F G H I
