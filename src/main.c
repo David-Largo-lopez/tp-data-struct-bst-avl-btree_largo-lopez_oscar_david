@@ -118,7 +118,6 @@ int main()
     inorder(dynamic_root, print_node_int);
     printf("\n");
 
-
     // PARTIE  PARCOURS ITERATIFS
 
     printf("\n TESTS PARCOURS ITERATIFS  \n");
@@ -127,6 +126,24 @@ int main()
     printf("\n");
 
     printf("Parcours Infixe Iteratif  : ");
+    inorder_iterative(dynamic_root, print_node_int);
+    printf("\n");
+
+    // PARTIE  SUPPRESSION DANS LE BST
+    
+    printf("\n TESTS : SUPPRESSION DANS LE BST  \n");
+
+    printf("Arbre avant suppression : ");
+    inorder_iterative(dynamic_root, print_node_int);
+    printf("\n");
+
+    printf("Suppression de 24,  1 enfant : ");
+    tree_delete(&dynamic_root, 24);
+    inorder_iterative(dynamic_root, print_node_int);
+    printf("\n");
+
+    printf("Suppression de 15,  2 enfants  : ");
+    tree_delete(&dynamic_root, 15);
     inorder_iterative(dynamic_root, print_node_int);
     printf("\n");
 

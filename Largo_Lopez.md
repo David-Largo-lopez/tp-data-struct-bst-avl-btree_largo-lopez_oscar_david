@@ -47,7 +47,7 @@ L'espace utilisé ne varie pas, c'est ce qu'on appelle la complexité O(1), c'es
 
 # Proposer trois arbres
 
-R\\ : Schéma des 3 types d'arbres BST img\Arbre_BST.jpg
+R\\ : Schéma des 3 types d'arbres BST  img/Arbre_BST.jpg
 
 # Main de base avec arbre statique
 
@@ -87,7 +87,7 @@ R// : Parcours Infixe (Inorder) : A B C D E F G H I
 Construire à la main le BST résultant de cette séquence d’insertions 
 
 R// : schéma de l'arbre résultant de cette séquence.
- img\BTS_Sequence_insertion.jpg
+ img/BTS_Sequence_insertion.jpg
 
 R// : Si la séquence avait été insérée dans l'ordre croissant, résultat aurait été un arbre dégénéré, une simple 
 ligne droite comme liste chaînée.
@@ -98,4 +98,8 @@ ligne droite comme liste chaînée.
 1. Stratégie 
 Je me repère avec seulement deux variables pour savoir où je suis "current"  et d'où je viens "prev" et juste en regardant par quel chemin je suis arrivé depuis le parent, le fils gauche ou le fils droit, je déduis logiquement la prochaine direction.
 
+
+# Mettre en œuvre tree_delete
+
+Arbre après suppression Tree_Delete.jpg
 

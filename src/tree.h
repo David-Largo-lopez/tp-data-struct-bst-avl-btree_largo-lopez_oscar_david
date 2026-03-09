@@ -24,4 +24,7 @@ void tree_free(struct tree_node *root);
 void preorder_iterative(struct tree_node *root, process_fn process);
 void inorder_iterative(struct tree_node *root, process_fn process);
 
+struct tree_node *tree_minimum(struct tree_node *node);
+struct tree_node *tree_delete(struct tree_node **root, int key);
+
 #endif

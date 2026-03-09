@@ -217,3 +217,81 @@ void tree_free(struct tree_node *root)
 {
     postorder(root, free_node_callback);
 }
+
+struct tree_node *tree_minimum(struct tree_node *node)
+{
+    struct tree_node *current = node;
+    while (current && current->left != NULL)
+    {
+        current = current->left;
+    }
+    return current;
+}
+
+// Supprime un nœud
+struct tree_node *tree_delete(struct tree_node **root, int key)
+{
+    if (*root == NULL)
+        return NULL;
+
+    struct tree_node *current = *root;
+    struct tree_node *parent = NULL;
+
+    while (current != NULL && current->data != key)
+    {
+        parent = current;
+        if (key < current->data)
+        {
+            current = current->left;
+        }
+        else
+        {
+            current = current->right;
+        }
+    }
+
+    if (current == NULL)
+        return NULL;
+
+    // Le nœud a DEUX enfants
+    if (current->left != NULL && current->right != NULL)
+    {
+        struct tree_node *successor = current->right;
+        struct tree_node *successor_parent = current;
+
+        while (successor->left != NULL)
+        {
+            successor_parent = successor;
+            successor = successor->left;
+        }
+
+        current->data = successor->data;
+
+        current = successor;
+        parent = successor_parent;
+    }
+
+    struct tree_node *child = (current->left != NULL) ? current->left : current->right;
+
+    if (parent == NULL)
+    {
+        *root = child;
+    }
+    else if (parent->left == current)
+    {
+        parent->left = child;
+    }
+    else
+    {
+        parent->right = child;
+    }
+
+    if (child != NULL)
+    {
+        child->parent = parent;
+    }
+
+    free(current);
+
+    return *root ? *root : (struct tree_node *)1;
+}
