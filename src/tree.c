@@ -208,12 +208,12 @@ void inorder_iterative(struct tree_node *root, process_fn process)
     }
 }
 
+void free_node_callback(struct tree_node *n)
+{
+    free(n);
+}
+
 void tree_free(struct tree_node *root)
 {
-    if (root == NULL)
-        return;
-
-    tree_free(root->left);
-    tree_free(root->right);
-    free(root);
+    postorder(root, free_node_callback);
 }
