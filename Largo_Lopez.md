@@ -47,7 +47,7 @@ L'espace utilisé ne varie pas, c'est ce qu'on appelle la complexité O(1), c'es
 
 # Proposer trois arbres
 
-Schéma des 3 types d'arbres BST (img/Arbre_BST.jpg)
+R\\ : Schéma des 3 types d'arbres BST img\Arbre_BST.jpg
 
 # Main de base avec arbre statique
 
@@ -81,3 +81,12 @@ Chaque sous-arbre respecte aussi cette règle  pour exemple 'B', 'A' est à gauc
 Que donne le parcours infixe sur l’arbre précédent ?
 
 R// : Parcours Infixe (Inorder) : A B C D E F G H I
+
+# Transformer en allocation dynamique
+
+Construire à la main le BST résultant de cette séquence d’insertions 
+
+R// : schéma de l'arbre résultant de cette séquence.
+ img\BTS_Sequence_insertion.jpg
+
+
