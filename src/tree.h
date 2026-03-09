@@ -18,6 +18,8 @@ void postorder(struct tree_node *n, process_fn process);
 void print_node(struct tree_node *n);
 
 struct tree_node *node_new(int data);
-struct tree_node *bst_insert(struct tree_node *root, struct tree_node *node);
+
+struct tree_node *bst_insert(struct tree_node **root, int data);
+void tree_free(struct tree_node *root);
 
 #endif

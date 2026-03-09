@@ -9,10 +9,10 @@ void print_node_int(struct tree_node *n)
 
 int main()
 {
-    // PARTIE 1 : EVALUATION POSTFIXE
+    // PARTIE 1 :
     char expression[] = "3 4 + 2 *";
 
-    printf("DEBUT DES TESTS : EVALUATION POSTFIXE \n");
+    printf(" TESTS : EVALUATION POSTFIXE \n");
     printf("Expression a evaluer : %s\n", expression);
 
     int resultat = eval_postfix(expression);
@@ -29,9 +29,9 @@ int main()
         printf("ERREUR : Il y a un probleme dans la logique.\n\n");
     }
 
-    //  PARTIE 2 : ARBRE  BST
+    //  PARTIE 2 : ARBRE BST
 
-    printf("DEBUT DES TESTS : CREATION DU BST STATIQUE \n");
+    printf("TESTS : CREATION  BST STATIQUE \n");
 
     TreeNode root = {
         .data = 'F',
@@ -80,11 +80,12 @@ int main()
         },
     };
 
-    printf("SUCCES : Arbre statique cree ! La racine contient la lettre : %c\n", root.data);
+    printf("SUCCES : Arbre statique cree ! racine lettre : %c\n", root.data);
     printf("Enfant gauche de la racine : %c\n", root.left->data);
     printf("Enfant droit de la racine  : %c\n", root.right->data);
 
-    printf("\n TESTS DES PARCOURS RECURSIFS \n");
+    printf("\n TESTS PARCOURS RECURSIFS \n");
+
     printf("Parcours Prefixe (Preorder)  : ");
     preorder(&root, print_node);
     printf("\n");
@@ -97,7 +98,9 @@ int main()
     postorder(&root, print_node);
     printf("\n");
 
-    printf("\n TESTS : CREATION D'UN BST DYNAMIQUE \n");
+    // PARTIE 3 BST DYNAMIQUE
+
+    printf("\n TESTS : CREATION  BST DYNAMIQUE \n");
 
     struct tree_node *dynamic_root = NULL;
 
@@ -106,15 +109,17 @@ int main()
 
     for (int j = 0; j < nb_valeurs; j++)
     {
-        struct tree_node *new_node = node_new(valeurs[j]);
-        dynamic_root = bst_insert(dynamic_root, new_node);
+        bst_insert(&dynamic_root, valeurs[j]);
     }
 
-    printf("SUCCES : Arbre dynamique cree avec malloc.\n");
+    printf("SUCCES : Arbre dynamique avec malloc.\n");
 
-    printf("Parcours Infixe (doit etre croissant) : ");
+    printf("Parcours Infixe (croissant) : ");
     inorder(dynamic_root, print_node_int);
     printf("\n");
+
+    tree_free(dynamic_root);
+    printf("\n SUCCES : Memoire liberee  avec tree_free.\n");
 
     return 0;
 }

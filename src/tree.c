@@ -55,38 +55,42 @@ struct tree_node *node_new(int data)
     return new_node;
 }
 
-struct tree_node *bst_insert(struct tree_node *root, struct tree_node *node)
+struct tree_node *bst_insert(struct tree_node **root, int data)
 {
-    if (root == NULL)
+    struct tree_node *node = node_new(data);
+
+    if (*root == NULL)
     {
+        *root = node;
         return node;
     }
 
-    struct tree_node *current = root;
+    struct tree_node *current = *root;
     struct tree_node *parent = NULL;
 
     while (current != NULL)
     {
         parent = current;
 
-        if (node->data < current->data)
+        if (data < current->data)
         {
             current = current->left;
         }
-        else if (node->data > current->data)
+        else if (data > current->data)
         {
             current = current->right;
         }
         else
         {
+
             free(node);
-            return root;
+            return NULL;
         }
     }
 
     node->parent = parent;
 
-    if (node->data < parent->data)
+    if (data < parent->data)
     {
         parent->left = node;
     }
@@ -95,5 +99,15 @@ struct tree_node *bst_insert(struct tree_node *root, struct tree_node *node)
         parent->right = node;
     }
 
-    return root;
+    return node;
+}
+
+void tree_free(struct tree_node *root)
+{
+    if (root == NULL)
+        return;
+
+    tree_free(root->left);
+    tree_free(root->right);
+    free(root);
 }

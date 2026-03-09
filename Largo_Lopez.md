@@ -89,4 +89,6 @@ Construire à la main le BST résultant de cette séquence d’insertions
 R// : schéma de l'arbre résultant de cette séquence.
  img\BTS_Sequence_insertion.jpg
 
+R// : Si la séquence avait été insérée dans l'ordre croissant, résultat aurait été un arbre dégénéré, une simple 
+ligne droite comme liste chaînée.
 
