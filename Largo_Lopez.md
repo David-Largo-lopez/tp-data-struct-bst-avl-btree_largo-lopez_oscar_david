@@ -92,3 +92,10 @@ R// : schéma de l'arbre résultant de cette séquence.
 R// : Si la séquence avait été insérée dans l'ordre croissant, résultat aurait été un arbre dégénéré, une simple 
 ligne droite comme liste chaînée.
 
+
+# Fonctions de traversée d’arbre itératives
+
+1. Stratégie 
+Je me repère avec seulement deux variables pour savoir où je suis "current"  et d'où je viens "prev" et juste en regardant par quel chemin je suis arrivé depuis le parent, le fils gauche ou le fils droit, je déduis logiquement la prochaine direction.
+
+

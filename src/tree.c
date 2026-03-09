@@ -82,7 +82,6 @@ struct tree_node *bst_insert(struct tree_node **root, int data)
         }
         else
         {
-
             free(node);
             return NULL;
         }
@@ -100,6 +99,113 @@ struct tree_node *bst_insert(struct tree_node **root, int data)
     }
 
     return node;
+}
+
+// Traverse itératif
+
+void preorder_iterative(struct tree_node *root, process_fn process)
+{
+    if (!root)
+        return;
+
+    struct tree_node *current = root;
+    struct tree_node *prev = NULL;
+
+    while (current != NULL)
+    {
+        if (prev == current->parent)
+        {
+            process(current);
+
+            if (current->left)
+            {
+                prev = current;
+                current = current->left;
+            }
+            else if (current->right)
+            {
+                prev = current;
+                current = current->right;
+            }
+            else
+            {
+                prev = current;
+                current = current->parent;
+            }
+        }
+        else if (prev == current->left)
+        {
+            if (current->right)
+            {
+                prev = current;
+                current = current->right;
+            }
+            else
+            {
+                prev = current;
+                current = current->parent;
+            }
+        }
+        else
+        {
+            prev = current;
+            current = current->parent;
+        }
+    }
+}
+
+void inorder_iterative(struct tree_node *root, process_fn process)
+{
+    if (!root)
+        return;
+
+    struct tree_node *current = root;
+    struct tree_node *prev = NULL;
+
+    while (current != NULL)
+    {
+        if (prev == current->parent)
+        {
+            if (current->left)
+            {
+                prev = current;
+                current = current->left;
+            }
+            else
+            {
+                process(current);
+                if (current->right)
+                {
+                    prev = current;
+                    current = current->right;
+                }
+                else
+                {
+                    prev = current;
+                    current = current->parent;
+                }
+            }
+        }
+        else if (prev == current->left)
+        {
+            process(current);
+            if (current->right)
+            {
+                prev = current;
+                current = current->right;
+            }
+            else
+            {
+                prev = current;
+                current = current->parent;
+            }
+        }
+        else
+        {
+            prev = current;
+            current = current->parent;
+        }
+    }
 }
 
 void tree_free(struct tree_node *root)

@@ -9,7 +9,7 @@ void print_node_int(struct tree_node *n)
 
 int main()
 {
-    // PARTIE 1 :
+    // PARTIE EVALUATION POSTFIXE
     char expression[] = "3 4 + 2 *";
 
     printf(" TESTS : EVALUATION POSTFIXE \n");
@@ -22,14 +22,14 @@ int main()
 
     if (resultat == 14)
     {
-        printf("SUCCES : La fonction eval_postfix est valide !\n\n");
+        printf("SUCCES : La fonction eval_postfix est valide \n\n");
     }
     else
     {
         printf("ERREUR : Il y a un probleme dans la logique.\n\n");
     }
 
-    //  PARTIE 2 : ARBRE BST
+    //  PARTIE  ARBRE BST
 
     printf("TESTS : CREATION  BST STATIQUE \n");
 
@@ -80,7 +80,7 @@ int main()
         },
     };
 
-    printf("SUCCES : Arbre statique cree ! racine lettre : %c\n", root.data);
+    printf("SUCCES : Arbre statique cree racine lettre : %c\n", root.data);
     printf("Enfant gauche de la racine : %c\n", root.left->data);
     printf("Enfant droit de la racine  : %c\n", root.right->data);
 
@@ -98,7 +98,7 @@ int main()
     postorder(&root, print_node);
     printf("\n");
 
-    // PARTIE 3 BST DYNAMIQUE
+    // PARTIE  BST DYNAMIQUE
 
     printf("\n TESTS : CREATION  BST DYNAMIQUE \n");
 
@@ -116,6 +116,18 @@ int main()
 
     printf("Parcours Infixe (croissant) : ");
     inorder(dynamic_root, print_node_int);
+    printf("\n");
+
+
+    // PARTIE  PARCOURS ITERATIFS
+
+    printf("\n TESTS PARCOURS ITERATIFS  \n");
+    printf("Parcours Prefixe Iteratif : ");
+    preorder_iterative(dynamic_root, print_node_int);
+    printf("\n");
+
+    printf("Parcours Infixe Iteratif  : ");
+    inorder_iterative(dynamic_root, print_node_int);
     printf("\n");
 
     tree_free(dynamic_root);
