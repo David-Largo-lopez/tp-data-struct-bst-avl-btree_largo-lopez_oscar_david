@@ -103,3 +103,15 @@ Je me repère avec seulement deux variables pour savoir où je suis "current"  e
 
 Arbre après suppression Tree_Delete.jpg
 
+# Arbres AVL
+
+Les arbres construits satisfont-ils la condition AVL ?
+
+Non, aucun des deux ne respecte la règle d'equilibre AVL qui impose une diference 
+de hauteur maximale de 1 entre la gauche et la droite.
+
+
+Version equilibree proposee Arbre des entiers.
+
+Pour que notre arbre dynamique deviene un AVL valide avec les memes clés,
+ il faut changer sa structure pour répartir le poids.
